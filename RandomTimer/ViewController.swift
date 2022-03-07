@@ -23,11 +23,8 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var TextLabel: UILabel!
-    
-    // 5分,10分,15分,20分,25分,30分と5分区切りで設定できるようにして、設定した範囲内でランダムにタイマーをセットする。
-    
     @IBOutlet weak var CountdownLabel: UILabel!
-
+    
     @IBAction func SettingButtonAction(_ sender: Any) {
         
         if let nowTimer = timer {
@@ -81,6 +78,14 @@ class ViewController: UIViewController {
  
            count = 0
            timer.invalidate()
+           
+           let alertController = UIAlertController(title: "終了", message: "タイマー終了時間です", preferredStyle: .alert)
+           let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+           
+           alertController.addAction(defaultAction)
+           
+           present(alertController, animated: true, completion: nil)
+           
        }
    }
     
